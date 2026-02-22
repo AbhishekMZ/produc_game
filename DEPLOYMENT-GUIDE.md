@@ -8,32 +8,53 @@ We'll use **Vercel** for the complete app - it's free, easy, and handles everyth
 
 ### Option 1: Deploy with Vercel (Easiest - All-in-One)
 
-**Step 1: Create a GitHub Repository**
+**Step 1: GitHub Repository (Already Created)**
 
-1. Go to https://github.com/new
-2. Create a new repository called `focusflow`
-3. Make it private (since it's just for you)
-4. Don't initialize with README
+Your repository is ready at: https://github.com/AbhishekMZ/produc_game
 
-**Step 2: Push Your Code to GitHub**
+**Step 2: Authenticate with GitHub**
 
-Open PowerShell in your project folder and run:
+Before pushing, you need to authenticate. Choose one option:
 
+**Option A: Using GitHub CLI (Recommended)**
 ```powershell
-git init
-git add .
-git commit -m "Initial commit - FocusFlow app"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/focusflow.git
-git push -u origin main
+# Install GitHub CLI if not installed
+winget install --id GitHub.cli
+
+# Login to GitHub
+gh auth login
+# Follow prompts: Choose HTTPS, authenticate with browser
 ```
 
-**Step 3: Deploy to Vercel**
+**Option B: Using Personal Access Token**
+1. Go to https://github.com/settings/tokens
+2. Click "Generate new token (classic)"
+3. Give it a name like "FocusFlow Deploy"
+4. Check "repo" scope
+5. Click "Generate token"
+6. Copy the token (you won't see it again!)
+7. When pushing, use token as password
+
+**Step 3: Push Your Code to GitHub**
+
+The code has been committed locally. Now push it:
+
+```powershell
+# If using GitHub CLI (after gh auth login)
+git push -u origin main
+
+# If using Personal Access Token
+git push -u origin main
+# Username: AbhishekMZ
+# Password: paste-your-token-here
+```
+
+**Step 4: Deploy to Vercel**
 
 1. Go to https://vercel.com/signup
 2. Sign up with your GitHub account (it's free)
 3. Click "Add New Project"
-4. Import your `focusflow` repository
+4. Import your `produc_game` repository
 5. Vercel will auto-detect Next.js settings
 6. Click "Deploy"
 
